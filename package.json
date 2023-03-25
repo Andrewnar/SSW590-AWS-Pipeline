@@ -1,0 +1,25 @@
+{
+    "name": "explore-hoboken",
+    "version": "1.0.0",
+    "description": "CS 545 Final Project",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "contributors": [
+        "Ryan Chin",
+        "Ryan Clark",
+        "Matthew Hullstrung",
+        "Roshan Narma",
+        "Andrew Narvaez"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.21.4",
+        "body-parser": "^1.15.2",
+        "express": "^4.14.0",
+        "express-handlebars": "^6.0.4",
+        "handlebars": "^4.7.3"
+    }
+}

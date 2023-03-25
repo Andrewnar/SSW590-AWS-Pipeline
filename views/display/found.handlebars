@@ -1,0 +1,82 @@
+<nav class="navbar navbar-light fixed-top">
+
+  <div class="m-3 card card_btn shadow">
+    <div class="m-2">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+  </div>
+      
+</nav>
+<section>
+  <h1 class="center-found">{{resultsMsg}}</h1>
+  <ul>
+    <div class="container mt-4">
+      <div class="row mt-12 d-flex justify-content-center" data-masonry='{"percentPosition": true }'>
+      {{#each activities}}
+        <div class="card card-custom mx-2 mb-3">
+          {{#if this.image_url}}
+          <a class="image-div" href="/activity/{{this.id}}">
+            <img class="card-img-top" src= {{this.image_url}} alt= {{this.name}} />
+          </a>
+          {{!-- <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image6.jpeg?tr=w-400,h-300" /> --}}
+          {{else}}
+          <a class="image-div" href="/activity/{{this.id}}">
+          <img class="card-img-top" src= "https://jorgeraziel.com/wp-content/themes/consultix/images/no-image-found-360x260.png" alt="No Image Found" />
+          </a>
+          {{/if}}
+          <div class="card-body">
+            {{!-- <h5 class="card-title">{{this.name}}</h5> --}}
+            {{!-- <p class="card-text">This is a wider card with supporting text below
+              as a natural lead-in to additional content. This content is a
+              little bit longer.</p> --}}
+            <a class="learn-more-link" href="/activity/{{this.id}}">{{this.name}}</a>
+          </div>
+        </div>
+            <!--
+          <li>
+
+            <a href="/activity/{{this.id}}">
+              <div class="entry">
+                <img src={{this.image_url}}>
+                <span>{{this.name}}</span>
+              </div>
+            </a>
+          </li>
+          -->
+      {{else}}
+        <p class="error">We're sorry, but no results were found for
+          {{searchDetails}}.</p>
+      {{/each}}
+      </div>
+    </div>
+  </ul>
+  <footer> 
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="https://cdn2.iconfinder.com/data/icons/user-interface-vol-1-circular-line/48/UI_v.1-Circular-Line-11-512.png" alt="Go to Top" class = "topBtn"></button>
+    <script>
+      //Get the button
+      var mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <script src="/public/script.js"></script>
+    <div class="return-link">
+      <a class="btn btn-lg btn-light footer_space" href="/">Make Another Search!</a>
+    </div>
+  </footer>
+ 
+</section>

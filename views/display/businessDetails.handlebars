@@ -1,0 +1,122 @@
+<nav class="navbar navbar-light fixed-top">
+
+  <div class="m-3 card card_btn shadow">
+    <div class="m-2">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+  </div>
+      
+</nav>
+<article class="business">
+  <div class="container mt-5 my-auto card shadow card-finder">
+    <div class="mx-auto my-3 mt-3">
+      {{!-- <h1 class="finder-header">{{title}}</h1> --}}
+      <h1 class="business-title">{{title}}</h1>
+    <!-- the top bar covers the title for each page, I am not sure how to fix but just adding a second one looks good  -->
+
+      {{#if business.image_url}}
+      <img class="business-image" alt="{{title}}" src={{business.image_url}}>
+      {{else}}
+      <img class="business-image" src= "https://jorgeraziel.com/wp-content/themes/consultix/images/no-image-found-360x260.png" alt="No Image Found" />
+      {{/if}}
+      {{!-- <p class="error">images seem to be a problem</p> --}}
+
+      <!--
+          These are going to have to be checked if they exist
+          Certain object keys sometimes don't exist (like price)
+          Also feel free to add/remove any of these fields, just samples
+      -->
+      <div class="business-details">
+        <dl>
+            <dt>Categories:</dt>
+            <dd>
+                <ul>
+                {{#each business.categories}}
+                    <li>{{this.title}}</li>
+                {{else}}
+                    <li>N/A</li>  
+                {{/each}}
+                </ul>
+            </dd>
+
+            <dt>Price:</dt>
+            {{#if business.price}}
+            <dd>{{business.price}}</dd>
+            {{else}}
+            <dd>N/A</dd>
+            {{/if}}
+
+            <dt>Hours:</dt>
+            <dd>
+              <ul>
+              {{#each business.HOURS}}
+                  <li>{{this.day}}: {{this.start}} - {{this.end}}</li>
+ 
+              {{else}}
+              <li>N/A</li>
+              {{/each}}
+              </ul>
+
+            </dd>
+              <!-- {{business.hours.open}}</dd> -->
+
+            <dt>Overall Rating:</dt>
+            {{#if business.rating}}
+            <dd>{{business.rating}}/5</dd>
+            {{else}}
+            <dd>N/A</dd>
+            {{/if}}
+
+            {{#if business.display_phone}}
+            <dt>Phone Number:</dt>
+            <dd>
+              <a class="phone-number" href="tel:{{business.display_phone}}">Call: {{business.display_phone}}</a>
+            </dd>
+            {{/if}}
+
+            {{#if business.location}}
+            <dt>Address:</dt>
+            <dd> 
+              <a class="address" href="http://maps.google.com/maps?q={{business.location.address1}}+{{business.location.city}}+{{business.location.state}}" target="_blank">{{business.location.address1}} {{business.location.city}}, {{business.location.state}}</a>
+            </dd>
+            {{/if}}
+        </dl>
+      </div>
+  <footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="https://cdn2.iconfinder.com/data/icons/user-interface-vol-1-circular-line/48/UI_v.1-Circular-Line-11-512.png" alt="Go to Top" class = "topBtn"></button>
+      <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <div class="links">
+        <div class="return-link">
+          <a class="btn btn-outline-secondary footer_space" href="javascript:history.back()">Return to results</a>
+          <a class="btn btn-outline-secondary footer_space" href="/">Make Another Search</a>
+        </div>
+        <div class="return-link">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Gonna want a go back to search results button -->
+
+</article>
