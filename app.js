@@ -5,7 +5,7 @@ const static = express.static(__dirname + "/public");
 const configRoutes = require("./routes");
 const exphbs = require("express-handlebars");
 
-const PORT = 8080;
+const PORT = 8081;
 const HOST = '0.0.0.0';
 
 app.use("/public", static);
